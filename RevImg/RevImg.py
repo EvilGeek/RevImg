@@ -29,7 +29,8 @@ class RevImg:
 
 	def get_best_guess(self, img_url):
 		q = self.__execute_query(img_url)
-		soup = BeautifulSoup(q, 'html.parser')
+		soup = BeautifulSoup(q, 'html.parser') 
+		result=None
 		for best_guess in soup.findAll('a', attrs={'class':'fKDtNb'}):
 			result = best_guess.get_text()
 		return result
